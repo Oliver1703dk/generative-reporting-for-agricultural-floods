@@ -181,7 +181,7 @@ Be specific, data-driven, and actionable. Include actual sensor readings and coo
 
     try:
         response = client.chat.completions.create(
-            model="gpt-4",
+            model="gpt-5-mini-2025-08-07",
             messages=[
                 {"role": "system", "content": config["system_prompt"]},
                 {"role": "user", "content": prompt}
