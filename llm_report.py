@@ -186,11 +186,12 @@ Be specific, data-driven, and actionable. Include actual sensor readings and coo
                 {"role": "system", "content": config["system_prompt"]},
                 {"role": "user", "content": prompt}
             ],
-            temperature=0.3,  # Lower temperature for more focused, factual output
-            max_tokens=2500
+            max_completion_tokens=16000
         )
 
         report = response.choices[0].message.content
+        if not report:
+            return "**Error Generating Report**\n\nThe model returned an empty response. This may be due to insufficient token budget for reasoning."
         return report
 
     except Exception as e:
